@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if context and context.title %}
+        {{ context.title }}
+    {% else %}
+        Главная страница
+    {% endif %}
+{% endblock %}
+
+{% block content%}
+<div class="page-container">
+    
+    <header class="header">
+        <div class="header-content">
+            <span class="logo">
+                <img src="{{ url_for('static', filename='pictures/Ellipse1.png') }}" alt="Олег Иконка" class="header-icon">
+                Олег: Играю и пою
+            </span>
+            <div class="header-buttons">
+                <button>Задонатить</button>
+                <button>Отдать долг</button>
+                <button>На медиатор</button>
+                <button>На Яшку</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <section class="section-about">
+            <div class="about-text">
+                <h2>Кто такой Олег?</h2>
+                <p>Это мы именно про Олега! Откуда он пришёл? Мы не знаем. Ему нравится, но не всем мамам. Нам очень страшно, когда мы видим Олега.</p>
+            </div>
+            <div class="about-image">
+                <img src="{{ url_for('static', filename='pictures/Rectangle9.png') }}" alt="Олег сидит с гитарой" class="oleg-photo">
+            </div>
+        </section>
+
+        <section class="section-reviews">
+            <div class="section-reviews-content">
+                <div class="review-card">
+                    <p>Это восторженный отзыв от мамы Олега</p>
+                    <div class="rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">☆</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p>Это максимально позитивный отзыв на Олега за то, что он играет песни по мультикам у метро</p>
+                    <div class="rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">☆</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p>Это недовольный отзыв от бомжа Саши, который считает себя талантом, а Олега — нет</p>
+                    <div class="rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-video video-custom-style">
+            <div class="video-header-wrapper">
+                <h3 class="video-title">Олег в ВК Видео</h3>
+            </div>
+            <div class="video-list custom-video-list">
+                <div class="video-item custom-video-item"></div> 
+                <div class="video-item custom-video-item"></div>
+                <div class="video-item custom-video-item"></div>
+                <div class="video-item custom-video-item"></div>
+                <div class="video-item custom-video-item"></div>
+            </div>
+        </section>
+
+        <section class="section-add-review">
+            <div class="review-form-content">
+                <form method="POST" class="form-fields">
+                    <input type="hidden" name="form_type" value="review">
+                    <label for="review-from">От кого</label>
+                    <input type="text" id="review-from" name="review-from">
+                    
+                    <label for="review-score">Оценка</label>
+                    <input type="text" id="review-score" name="review-score">
+                    
+                    <label for="review-comment">Комментарий</label>
+                    <textarea id="review-comment" name="review-comment"></textarea>
+                    
+                    <button type="submit" class="submit-button">Оставить отзыв</button>
+                </form>
+                <div class="rating-visual">
+                    <div class="stars-image"></div>
+                    <img src="{{ url_for('static', filename='pictures/Group1.png') }}" alt="Графика звезд" style="border-radius: 50%;"> 
+                </div>
+            </div>
+        </section>
+
+        <section class="section-order">
+            <div class="section-order-content">
+                <form method="POST" class="order-form-fields">
+                    <input type="hidden" name="form_type" value="order">
+                    <h3>Заказать концерт у метро</h3>
+                    <label for="order-station">Станция метро</label>
+                    <input type="text" id="order-station" name="order-station">
+                    
+                    <label for="order-fio">ФИО заказчика</label>
+                    <input type="text" id="order-fio" name="order-fio">
+                    
+                    <button type="submit" class="submit-button order-button">Заказать</button>
+                </form>
+                <div class="order-image">
+                    <img src="{{ url_for('static', filename='pictures/image_buds.png') }}" alt="Наушники" class="headphones-img">
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="footer">
+        <div class="donation-row">
+            <img src="{{ url_for('static', filename='pictures/image2.png') }}" alt="Эмодзи" class="emoji-img">
+            <button class="donate-all">Задонатить от всей души!</button>
+            <img src="{{ url_for('static', filename='pictures/image2.png') }}" alt="Эмодзи" class="emoji-img">
+        </div>
+    </footer>
+
+</div>
+{% endblock%}

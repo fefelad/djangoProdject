@@ -1,0 +1,7 @@
+quart==0.18.4
+werkzeug==2.3.0
+quart-wtf
+wtforms
+sqlalchemy
+psycopg2-binary
+email-validator
